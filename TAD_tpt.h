@@ -27,4 +27,5 @@ int compArbol(TArbol, TArbol);
 void unionArbol(TArbol*, TArbol);
 str retStr(TArbol);
 int compSet(TArbol, TArbol);
+TArbol interseccion(TArbol,TArbol);
 #endif

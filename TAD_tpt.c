@@ -298,3 +298,32 @@ void show_arbol(TArbol cab){
 		}
 	}
 }
+TArbol interseccion(TArbol cab,TArbol otra){
+	TArbol nvo,aux,aux2;
+	nvo=create_arbol(2);
+	aux=create_arbol(2);
+	while(cab->dato->sig!=NULL){
+		aux->dato=otra->dato;
+		aux->tipo=otra->tipo;
+		while(aux->dato->sig!=NULL){
+			if(compArbol(cab,aux->dato)==1){
+				if(compArbol(nvo,aux->dato)!=1){
+					if(nvo->sig==NULL){
+						nvo->dato=cab->dato;
+						nvo->tipo=cab->tipo;
+					}
+					else{
+						aux2=nvo->dato;
+						while(aux2->sig!=NULL)
+							aux2=aux2->sig;
+						aux2->sig=cab->dato;
+					}
+				}
+			}
+			aux=aux->dato->sig;
+		}
+		cab=cab->dato->sig;
+	}
+	return nvo;
+}
+		
